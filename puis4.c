@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+char token[] = "OX";
+char gamearray[6][7];
+int NBR=6, NBC=7;
 int end_game, tour, rep_c, player, end = 0;
 char c;
 
