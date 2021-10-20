@@ -1,0 +1,4 @@
+char token[] = "OX";
+char gamearray[6][7];
+#define NBR=6;
+#define NBC=7;
