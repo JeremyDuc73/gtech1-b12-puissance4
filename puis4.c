@@ -146,14 +146,14 @@ int main (void){
       end_game=1 ;
     }
     
-    else if (end == 42){ //42 == total number of possibilities
+    else if (end == 41){ //42 == total number of possibilities
       printf("Sorry but it's a draw this time !\n");
       end_game = 1;
     }
 
     player= !player;
     turn = 0;
-    end += 1;
+    end++;
     
   }
 }
