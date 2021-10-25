@@ -27,7 +27,7 @@ void display(void) {
 	{
 	  printf("%c ",gamearray[r][c]);
 	}
-   }
+    }
   printf("\n");
   dash();
   printf("\n");
@@ -65,10 +65,10 @@ int pion_in_tab(int token_col, int player){
   else {
     for(int r = NBR-1 ; r>=0 ; r--) {
       if (gamearray[r][token_col-1]=='.'){
-        gamearray[r][token_col-1] = token[player];
+	gamearray[r][token_col-1] = token[player];
 	turn = 1;
 	break;
-	}
+      }
     }
   }
 }
@@ -100,7 +100,7 @@ void win_diagonal_left(void){
   for(int r=0;r<NBR-3;r++) {
     for(int c=0;c<NBC-3;c++) {
       if (gamearray[r][c]==token[player] && gamearray[r+1][c+1]==token[player] && gamearray[r+2][c+2]==token[player] && gamearray[r+3][c+3]==token[player]){
-        win = 1;
+	win = 1;
       }
     }
   }
@@ -108,10 +108,11 @@ void win_diagonal_left(void){
 
 /*CHECK RIGHT DIAGONAL WIN FUNCTION*/
 void win_diagonal_right(void){
-  for(int r=0;r<NBR-3;r++) {
-    for(int c=NBC; c>2 ;c--) {
-      if (gamearray[r][c]==token[player] && gamearray[r+1][c-1]==token[player] && gamearray[r+2][c-2]==token[player] && gamearray[r+3][c-3]==token[player]){
+  for(int r=NBR;r>3;r--) {
+    for(int c=0; c<NBC-3 ;c++) {
+      if (gamearray[r][c]==token[player] && gamearray[r-1][c+1]==token[player] && gamearray[r-2][c+2]==token[player] && gamearray[r-3][c+3]==token[player]){
 	win = 1;
+	printf("%d %d %d %d", r , c ,r+3 ,c-3);
       }
     }
   }
@@ -131,7 +132,7 @@ void verify_win(void){
 int main (void){
   init();
   while (end_game ==0) {
-    
+
     do{
       printf("[player %d] : Please chose a column to play ! (1 to 7)\n", player+1);
     }while (((scanf("%d%c", &col_played, &c)!=2 || c!='\n') && clean()) || col_played<1 || col_played>7) ;
@@ -140,12 +141,12 @@ int main (void){
     }
     display();
     verify_win();
-    
+
     if (win == 1){
       printf("[player %d] : You win\n",player+1);
       end_game=1 ;
     }
-    
+
     else if (end == 41){ //42 == total number of possibilities
       printf("Sorry but it's a draw this time !\n");
       end_game = 1;
@@ -154,9 +155,10 @@ int main (void){
     player= !player;
     turn = 0;
     end++;
-    
+
   }
 }
+
 
 /*
 PUISSANCE4 game by Aleksi BIELSKI and Jérémy DUC
