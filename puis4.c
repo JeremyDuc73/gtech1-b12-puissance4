@@ -19,13 +19,21 @@ void dash(void){
 
 /*DISPLAY FUNCTION*/
 void display(void) {
+  printf("\033[0;32m");
   dash();
   for (int r = 0; r < NBR; r++)
     {
       printf("\n");
       for(int c = 0; c < NBC; c++)
 	{
+	  if (gamearray [r][c] == token[0]){
+	    printf("\033[0;31m");
+	  }
+	  else if (gamearray [r][c] == token[1]){
+            printf("\x1B[33m");
+	  }
 	  printf("%c ",gamearray[r][c]);
+	  printf("\033[0;32m");
 	}
     }
   printf("\n");
@@ -39,6 +47,7 @@ void display(void) {
 
 /*GAME INITIALISATION FUNCTION*/
 void init(void){
+  printf("\033[0;37m");
   printf("HELLO!\nWELCOME TO PUISSANCE 4!!\nThe game size is 6x7\n\n");
   for(int r=0;r<NBR;r++) {
     for(int c=0;c<NBC;c++) {
@@ -59,6 +68,7 @@ int pion_in_tab(int token_col, int player){
   if (gamearray[0][token_col-1] !='.'){
     display();
     do{
+      printf("\033[0;37m");
       printf("[player %d] : This column is full please choose another one ! (1 to 7)\n", player+1);
     }while (((scanf("%d%c", &col_played, &c)!=2 || c!='\n') && clean()) || col_played<1 || col_played>7) ;
   }
@@ -134,6 +144,7 @@ int main (void){
   while (end_game ==0) {
 
     do{
+      printf("\033[0;32m");
       printf("[player %d] : Please chose a column to play ! (1 to 7)\n", player+1);
     }while (((scanf("%d%c", &col_played, &c)!=2 || c!='\n') && clean()) || col_played<1 || col_played>7) ;
     while(turn == 0){
@@ -143,11 +154,13 @@ int main (void){
     verify_win();
 
     if (win == 1){
+      printf("\033[0;37m");
       printf("[player %d] : You win\n",player+1);
       end_game=1 ;
     }
 
     else if (end == 41){ //42 == total number of possibilities
+      printf("\033[0;37m");
       printf("Sorry but it's a draw this time !\n");
       end_game = 1;
     }
