@@ -1,0 +1,13 @@
+void dash(void);
+void display(void);
+void init(void);
+int clean();
+int pion_in_tab(int token_col,int player);
+void win_vertical(void);
+void win_horizontal(void);
+void win_diagonal_left(void);
+void win_diagonal_right(void);
+void verify_win(void);
+void reset(void);
+void play_again(void);
+int main(void);

@@ -1,0 +1,13 @@
+void dash(void);
+void display(void);
+void init(void);
+void clean(void);
+void pion_in_tab(void);
+void win_vertical(void);
+void win_horizontal(void);
+void win_diagonal_left(void);
+void win_diagonal_right(void);
+void verify_win(void);
+void reset(void);
+void play_again(void);
+void main(void);
