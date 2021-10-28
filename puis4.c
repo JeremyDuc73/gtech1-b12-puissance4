@@ -72,6 +72,11 @@ int pion_in_tab(int token_col, int player){
       printf("\033[0;37m");
       printf("[player %d] : This column is full please choose another one ! (1 to 7)\n", player+1);
     }while (((scanf("%d%c", &col_played, &c)!=2 || c!='\n') && clean()) || col_played<1 || col_played>7) ;
+    /*
+    as long as the number returned by the scanf is different from 2 or different from the line feed,
+    and as long as the value recovered in the buffer is smaller than 1 or larger than 7,
+    then execute the clean() function and return to the beginning of the loop 
+    */
   }
   else {
     for(int r = NBR-1 ; r>=0 ; r--) {
